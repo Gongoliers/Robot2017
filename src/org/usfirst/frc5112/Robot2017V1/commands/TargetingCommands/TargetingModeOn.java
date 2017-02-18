@@ -26,7 +26,7 @@ public class TargetingModeOn extends Command {
 	}
 
 	protected void end() {
-		Robot.targetingSystem.enableTargetMode();
+		Robot.targetingSystem.enableTargetMode(null);
 	}
 
 	protected void interrupted() {

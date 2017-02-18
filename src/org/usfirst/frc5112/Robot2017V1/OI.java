@@ -28,6 +28,7 @@ import org.usfirst.frc5112.Robot2017V1.commands.ShooterCommands.IncreaseShooterS
 import org.usfirst.frc5112.Robot2017V1.commands.ShooterCommands.SpinShooterClockwise;
 import org.usfirst.frc5112.Robot2017V1.commands.ShooterCommands.SpinShooterCounterclockwise;
 import org.usfirst.frc5112.Robot2017V1.commands.ShooterCommands.StopShooter;
+import org.usfirst.frc5112.Robot2017V1.commands.TargetingCommands.AlignWithHighGoal;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
@@ -115,7 +116,7 @@ public class OI {
     	//Command Groups
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 		SmartDashboard.putData("StopEverything", new StopEverything());
-		
+		SmartDashboard.putData("AlignWithHighGoal", new AlignWithHighGoal());
 		// XBOX Controller Initialization
 		//xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter
 		//xbox.LT.whenActive(new SpinShooterCounterclockwise());		//
