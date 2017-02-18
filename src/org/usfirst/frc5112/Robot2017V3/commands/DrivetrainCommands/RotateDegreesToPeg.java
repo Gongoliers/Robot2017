@@ -6,7 +6,6 @@ import org.usfirst.frc5112.Robot2017V3.RobotMap;
 import com.thegongoliers.output.PID;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *

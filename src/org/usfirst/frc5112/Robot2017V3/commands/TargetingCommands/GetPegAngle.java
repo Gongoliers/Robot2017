@@ -2,7 +2,6 @@ package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
 
 import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;
 import org.usfirst.frc5112.Robot2017V3.Robot;
-import org.usfirst.frc5112.Robot2017V3.RobotMap;
 import org.usfirst.frc5112.Robot2017V3.subsystems.TargetingSystem;
 
 import com.kylecorry.frc.vision.CameraSpecs;

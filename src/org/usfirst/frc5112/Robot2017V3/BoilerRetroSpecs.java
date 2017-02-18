@@ -3,38 +3,36 @@ package org.usfirst.frc5112.Robot2017V3;
 import org.opencv.core.Range;
 
 import com.kylecorry.frc.vision.TargetSpecs;
-import com.thegongoliers.input.camera.LEDColor;
 
 public class BoilerRetroSpecs implements TargetSpecs{
 
 	@Override
 	public Range getHue() {
-		// TODO Auto-generated method stub
-		return LEDColor.GreenV2.getHue();
+		return new Range(75, 125);
 	}
 
 	@Override
 	public Range getSaturation() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Range(175, 255);
 	}
 
 	@Override
 	public Range getValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Range(65, 255);
 	}
 
 	@Override
 	public double getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return inchestToMeters(15);
 	}
 
 	@Override
 	public double getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return inchestToMeters(10);
+	}
+
+	private double inchestToMeters(double inches) {
+		return inches * 0.0254;
 	}
 
 	@Override
