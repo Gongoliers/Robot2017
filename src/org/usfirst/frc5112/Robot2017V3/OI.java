@@ -118,28 +118,28 @@ public class OI {
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 		SmartDashboard.putData("StopEverything", new StopEverything());
 		SmartDashboard.putData("AlignWithHighGoal", new AlignWithHighGoal());
+		
+		
 		// XBOX Controller Initialization
-		//xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter
-		//xbox.LT.whenActive(new SpinShooterCounterclockwise());		//
+		xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter direction
+		xbox.LT.whenActive(new SpinShooterCounterclockwise());		//
 		
+		xbox.LB.whenPressed(new DecreaseShooterSpeedManual());		// SIDE BUTTONS control the shooter speed
+		xbox.RB.whenPressed(new IncreaseShooterSpeedManual());		//
 		
-		//xbox.START.toggleWhenPressed(new );						// START BUTTON toggles the inward intake
+		xbox.START.toggleWhenPressed(new IntakeIn());				// START BUTTON toggles the inward intake
 		xbox.BACK.whileHeld(new StopEverything());				    // BACK BUTTON stops all robot systems
 		
-		xbox.DPAD_UP.whileActive(new IntakeIn());					// DPAD_UP Intakes in
-		xbox.DPAD_DOWN.whileActive(new IntakeOut());				// DPAD_DOWN Intakes out
-		xbox.DPAD_LEFT.whileActive(new StopIntake());				// DPAD_LEFT Stops the intake
-		//xbox.DPAD_RIGHT.whileActive(new ());						// DPAD_RIGHT Stops the scaler
+		xbox.DPAD_UP.whileActive(new IntakeIn());					// UP BUTTON intakes fuel
+		xbox.DPAD_DOWN.whileActive(new IntakeOut());				// DOWN BUTTON out-takes fuel
+		xbox.DPAD_LEFT.whileActive(new ScalerUp());					// LEFT BUTTON climbs the rope
+		xbox.DPAD_RIGHT.whileActive(new ScalerUp());				// RIGHT BUTTON climbs the rope
 		
-		xbox.Y.whenPressed(new ScalerUp());							// Y Runs ScalerUp(climbs the rope)
-		xbox.A.whenPressed(new StopScaler());						// A Runs ScalerDown
-		xbox.X.whenPressed(new SpinShooterClockwise());				// X Spins the shooter 
-		xbox.B.whenPressed(new StopShooter());						// B Stops the shooter
-	
-		xbox.Y.whenPressed(new IncreaseShooterSpeedManual());		
-		xbox.A.whenPressed(new DecreaseShooterSpeedManual());
-		xbox.X.whenPressed(new SpinShooterClockwise());
-		xbox.B.whenPressed(new SpinShooterCounterclockwise());
+		xbox.Y.whenPressed(new StopIntake());						// Y BUTTON stops the intake
+		xbox.A.whenPressed(new StopDrivetrain());					// A BUTTON stops the drivetrain
+		xbox.X.whenPressed(new StopScaler());						// X BUTTON stops the scaler
+		xbox.B.whenPressed(new StopShooter());						// B BUTTON stops the shooter
+
 	}
 
 	public Joystick getJoystick() {
