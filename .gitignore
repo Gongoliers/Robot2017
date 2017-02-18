@@ -14,6 +14,11 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+bin/*
+build/*
+dist/*
+.classpath
+
 # Windows shortcuts
 *.lnk
 
@@ -45,3 +50,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/bin/
