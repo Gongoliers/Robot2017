@@ -1,4 +1,4 @@
-/*package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
 
 import org.usfirst.frc5112.Robot2017V3.BoilerRetroSpecs;
 import org.usfirst.frc5112.Robot2017V3.Robot;
@@ -9,9 +9,9 @@ import com.kylecorry.geometry.Point;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-*//**
+/**
  *
- *//*
+ */
 public class GetBoilerAngle extends Command {
 
 	public static double gyroAngle = 0;
@@ -53,4 +53,3 @@ public class GetBoilerAngle extends Command {
 	protected void interrupted() {
 	}
 }
-*/

@@ -1,4 +1,4 @@
-/*package org.usfirst.frc5112.Robot2017V3.subsystems;
+package org.usfirst.frc5112.Robot2017V3.subsystems;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoCamera;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-*//**
+/**
  *
- *//*
+ */
 public class TargetingSystem extends Subsystem {
 
 	private TargetGroupDetector boilerDetector, pegDetector;
@@ -114,4 +114,3 @@ public class TargetingSystem extends Subsystem {
 		camera.setExposure(20);
 	}
 }
-*/

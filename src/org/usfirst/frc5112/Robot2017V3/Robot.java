@@ -25,7 +25,7 @@ public class Robot extends IterativeRobot {
 	public static Hopper hopper;
 	public static Scaler scaler;
 	public static Shooter shooter;
-//	public static TargetingSystem targetingSystem;
+	public static TargetingSystem targetingSystem;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 		hopper = new Hopper();
 		scaler = new Scaler();
 		shooter = new Shooter();
-//		targetingSystem = new TargetingSystem();
+		targetingSystem = new TargetingSystem();
 
 		// OI must be constructed after subsystems. If the OI creates Commands
 		// (which it very likely will), subsystems are not guaranteed to be
