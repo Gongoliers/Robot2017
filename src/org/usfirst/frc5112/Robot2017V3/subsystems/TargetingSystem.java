@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class TargetingSystem extends Subsystem {
 
 	private TargetGroupDetector boilerDetector, pegDetector;
-	private CameraSource currentCamera, pegCamera, boilerCamera;
+	public CameraSource currentCamera, pegCamera, boilerCamera;
 
 	// TODO: Put methods for controlling this subsystem
 	// here. Call these from Commands.
