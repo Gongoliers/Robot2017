@@ -23,15 +23,15 @@ public class BoilerRetroSpecs implements TargetSpecs{
 
 	@Override
 	public double getWidth() {
-		return inchestToMeters(15);
+		return inchesToMeters(15);
 	}
 
 	@Override
 	public double getHeight() {
-		return inchestToMeters(10);
+		return inchesToMeters(10);
 	}
 
-	private double inchestToMeters(double inches) {
+	private double inchesToMeters(double inches) {
 		return inches * 0.0254;
 	}
 
