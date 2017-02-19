@@ -1,11 +1,5 @@
 package org.usfirst.frc5112.Robot2017V3;
 
-import com.kylecorry.geometry.Point;
-import com.kylecorry.geometry.Pose;
-import com.kylecorry.geometry.Quaternion;
-import com.kylecorry.geometry.Vector3;
-import com.kylecorry.tf.TransformationMap;
-
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
@@ -31,7 +25,7 @@ public class RobotMap {
 	public static SpeedController hopperHopperMotor;
 	public static SpeedController scalerScalerMotor;
 	public static SpeedController shooterFlywheel;
-	public static TransformationMap tf;
+	//public static TransformationMap tf;
 	public static Gyro gyro;
 	
 	public static double inchesToMeters(double inches) {
@@ -78,12 +72,12 @@ public class RobotMap {
 		gyro = new AnalogGyro(0);
 		gyro.calibrate();
 		
-		tf = new TransformationMap();
-		tf.put("pegCamera", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
-		tf.put("boilerCamera", "pegCamera", new Pose(new Point(0, inchesToMeters(-1.5), inchesToMeters(3)), new Quaternion(Math.PI/4, Vector3.i)));
-		tf.put("Intake", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
-		tf.put("GearHolster", new Pose(new Point(inchesToMeters(0.5), inchesToMeters(14.75), inchesToMeters(14)), Quaternion.zero));
-		tf.put("Shooter", new Pose(new Point(inchesToMeters(-6.25), inchesToMeters(-9.75), inchesToMeters(11.25)), Quaternion.zero));
+		//tf = new TransformationMap();
+		//tf.put("pegCamera", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
+		//tf.put("boilerCamera", "pegCamera", new Pose(new Point(0, inchesToMeters(-1.5), inchesToMeters(3)), new Quaternion(Math.PI/4, Vector3.i)));
+		//tf.put("Intake", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
+		//tf.put("GearHolster", new Pose(new Point(inchesToMeters(0.5), inchesToMeters(14.75), inchesToMeters(14)), Quaternion.zero));
+		//tf.put("Shooter", new Pose(new Point(inchesToMeters(-6.25), inchesToMeters(-9.75), inchesToMeters(11.25)), Quaternion.zero));
 		
 	}
 }

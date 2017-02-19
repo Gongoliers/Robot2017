@@ -60,8 +60,9 @@ public class TargetingSystem extends Subsystem {
 		double angle = Math.toRadians(90 - point.computeAngle(imageWidth, cameraViewAngle));
 		double distance = point.computeDistance(imageWidth, targetActualWidth, cameraViewAngle);
 		Point targetPoint = Point.fromCylindrical(distance, angle, 0);
-		Point targetFromShooter = RobotMap.tf.transform(targetPoint, "BoilerCamera", "Shooter");
-		return targetFromShooter;
+		//Point targetFromShooter = RobotMap.tf.transform(targetPoint, "BoilerCamera", "Shooter");
+		//return targetFromShooter;
+		return targetPoint;
 	}
 	
 	public Point getPegPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
@@ -72,8 +73,9 @@ public class TargetingSystem extends Subsystem {
 		double angle = Math.toRadians(90 - point.computeAngle(imageWidth, cameraViewAngle));
 		double distance = point.computeDistance(imageWidth, targetActualWidth, cameraViewAngle);
 		Point targetPoint = Point.fromCylindrical(distance, angle, 0);
-		Point targetFromShooter = RobotMap.tf.transform(targetPoint, "PegCamera", "Shooter");
-		return targetFromShooter;
+		//Point targetFromShooter = RobotMap.tf.transform(targetPoint, "PegCamera", "Shooter");
+		//return targetFromShooter;
+		return targetPoint;
 	}
 
 	public static double getDistance(double x, double y) {
