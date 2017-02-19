@@ -73,8 +73,8 @@ public class RobotMap {
 		gyro.calibrate();
 		
 		//tf = new TransformationMap();
-		//tf.put("pegCamera", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
-		//tf.put("boilerCamera", "pegCamera", new Pose(new Point(0, inchesToMeters(-1.5), inchesToMeters(3)), new Quaternion(Math.PI/4, Vector3.i)));
+		//tf.put("PegCamera", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
+		//tf.put("BoilerCamera", "PegCamera", new Pose(new Point(0, inchesToMeters(-1.5), inchesToMeters(3)), new Quaternion(Math.PI/4, Vector3.i)));
 		//tf.put("Intake", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
 		//tf.put("GearHolster", new Pose(new Point(inchesToMeters(0.5), inchesToMeters(14.75), inchesToMeters(14)), Quaternion.zero));
 		//tf.put("Shooter", new Pose(new Point(inchesToMeters(-6.25), inchesToMeters(-9.75), inchesToMeters(11.25)), Quaternion.zero));
