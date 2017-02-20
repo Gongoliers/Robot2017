@@ -7,9 +7,17 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveForward extends Command {
-
-	public DriveForward() {
+public class DriveForwards extends Command {
+	
+	public final double speed;
+	
+	public DriveForwards() {
+		speed = 0.25;
+		requires(Robot.drivetrain);
+	}
+	
+	public DriveForwards(double speed) {
+		this.speed = speed;
 		requires(Robot.drivetrain);
 	}
 
@@ -24,7 +32,7 @@ public class DriveForward extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		Robot.drivetrain.forward(0.25);
+		Robot.drivetrain.forward(speed);
 	}
 
 	/**

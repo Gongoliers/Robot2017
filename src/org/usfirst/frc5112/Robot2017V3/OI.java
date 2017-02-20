@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc5112.Robot2017V3.commands.*;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveBackwards;
-import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveForward;
+import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveForwards;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.InvertMotors;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.OperatorControl;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RestoreMotorDirection;
@@ -79,7 +79,7 @@ public class OI {
 		SmartDashboard.putData("OperatorControl", new OperatorControl());
 		SmartDashboard.putData("InvertMotors", new InvertMotors());
 		SmartDashboard.putData("RestoreMotorDirection", new RestoreMotorDirection());
-		SmartDashboard.putData("Forward", new DriveForward());
+		SmartDashboard.putData("Forward", new DriveForwards());
 		SmartDashboard.putData("Reverse", new DriveBackwards());
 		SmartDashboard.putData("StopDrivetrain", new StopDrivetrain());
 		SmartDashboard.putData("RotateClockwise", new RotateClockwise());

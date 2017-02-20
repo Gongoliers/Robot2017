@@ -8,8 +8,16 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveBackwards extends Command {
-
+	
+	public final double speed;
+	
 	public DriveBackwards() {
+		this.speed = 0.25;
+		requires(Robot.drivetrain);
+	}
+	
+	public DriveBackwards(double speed) {
+		this.speed = speed;
 		requires(Robot.drivetrain);
 	}
 
