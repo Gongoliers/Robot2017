@@ -2,8 +2,6 @@ package org.usfirst.frc5112.Robot2017V3;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import java.awt.DisplayMode;
-
 import org.usfirst.frc5112.Robot2017V3.commands.*;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveBackwards;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveForward;
@@ -34,12 +32,10 @@ import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterCount
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.StopShooter;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.BoilerCameraEnable;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.PegCameraEnable;
-//import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithHighGoal;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOn;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.buttons.*;
 
 /**
