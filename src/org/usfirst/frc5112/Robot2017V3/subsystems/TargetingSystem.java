@@ -6,21 +6,19 @@ import org.usfirst.frc5112.Robot2017V3.Boiler;
 import org.usfirst.frc5112.Robot2017V3.BoilerRetroSpecs;
 import org.usfirst.frc5112.Robot2017V3.Peg;
 import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;
-import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
+//import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
 
 import com.kylecorry.frc.vision.CameraSource;
 import com.kylecorry.frc.vision.TargetGroup;
 import com.kylecorry.frc.vision.TargetGroupDetector;
 import com.kylecorry.geometry.Point;
 
-//import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
+
 public class TargetingSystem extends Subsystem {
 
 	private TargetGroupDetector boilerDetector, pegDetector;
@@ -30,15 +28,15 @@ public class TargetingSystem extends Subsystem {
 	// here. Call these from Commands.
 	public TargetingSystem() {
 		//boilerDetector = new TargetGroupDetector(new BoilerRetroSpecs(), new Boiler());
-		pegDetector = new TargetGroupDetector(new PegRetroreflective(), new Peg());
+		//pegDetector = new TargetGroupDetector(new PegRetroreflective(), new Peg());
 		VideoCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
 		cam0.setResolution(640, 480);
 		VideoCamera cam1 = CameraServer.getInstance().startAutomaticCapture(1);
 		cam1.setResolution(640, 480);
 		pegCamera = new CameraSource(cam0);
 		boilerCamera = new CameraSource(cam1);	
-		disableTargetMode(pegCamera);
-		disableTargetMode(boilerCamera);
+		//disableTargetMode(pegCamera);
+		//disableTargetMode(boilerCamera);
 		enablePegCamera();
 	}
 	
@@ -54,7 +52,7 @@ public class TargetingSystem extends Subsystem {
 		currentCamera = boilerCamera;
 	}
 	
-	public Point getBoilerPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
+	/*public Point getBoilerPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
 		TargetGroup point = getBoilerTarget();
 		if(point == null){
 			return null;
@@ -65,9 +63,9 @@ public class TargetingSystem extends Subsystem {
 		//Point targetFromShooter = RobotMap.tf.transform(targetPoint, "BoilerCamera", "Shooter");
 		//return targetFromShooter;
 		return targetPoint;
-	}
+	}*/
 	
-	public Point getPegPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
+	/*public Point getPegPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
 		TargetGroup point = getPegTarget();
 		if(point == null){
 			return null;
@@ -86,13 +84,13 @@ public class TargetingSystem extends Subsystem {
 
 	public static double getAngle(double x, double y) {
 		return Math.toDegrees(Math.atan2(y, x));
-	}
+	}*/
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new TargetingModeOff());
+		//setDefaultCommand(new TargetingModeOff());
 	}
 
-	public TargetGroup getBoilerTarget() {
+	/*public TargetGroup getBoilerTarget() {
 		List<TargetGroup> targetGroups = boilerDetector.detect(currentCamera.getPicture());
 		if (!targetGroups.isEmpty()) {
 			return targetGroups.get(0);
@@ -106,7 +104,7 @@ public class TargetingSystem extends Subsystem {
 			return targetGroups.get(0);
 		}
 		return null;
-	}
+	}*/
 
 	public void enableTargetMode(CameraSource camera) {
 		camera.setBrightness(0);

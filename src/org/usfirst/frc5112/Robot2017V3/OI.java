@@ -32,7 +32,11 @@ import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.IncreaseShooterS
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterClockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterCounterclockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.StopShooter;
-import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithHighGoal;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.BoilerCameraEnable;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.PegCameraEnable;
+//import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithHighGoal;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOn;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Sendable;
@@ -85,6 +89,12 @@ public class OI {
 		SmartDashboard.putData("RotateClockwise", new RotateClockwise());
 		SmartDashboard.putData("RotateCounterclockwise", new RotateCounterclockwise());
 
+		//SmartDashboard - Targeting System
+		SmartDashboard.putData("TargetingModeOff", new TargetingModeOff());
+		SmartDashboard.putData("TargetingModeOn", new TargetingModeOn());
+		SmartDashboard.putData("EnableBoilerCam", new BoilerCameraEnable());
+		SmartDashboard.putData("EnablePegCam", new PegCameraEnable());
+		
 		
 		// SmartDashboard - Intake
 		SmartDashboard.putData("IntakeIn", new IntakeIn());
@@ -120,8 +130,7 @@ public class OI {
     	//Command Groups
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 		SmartDashboard.putData("StopEverything", new StopEverything());
-		SmartDashboard.putData("AlignWithHighGoal", new AlignWithHighGoal());
-		//SmartDashboard.putData("Camera", (Sendable) Robot.targetingSystem.currentCamera.getPicture());
+		//SmartDashboard.putData("AlignWithHighGoal", new AlignWithHighGoal());
 		
 		// XBOX Controller Initialization
 		xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter direction

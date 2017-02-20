@@ -4,9 +4,7 @@ import org.usfirst.frc5112.Robot2017V3.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
+
 public class BoilerCameraEnable extends Command {
 
 	public BoilerCameraEnable() {

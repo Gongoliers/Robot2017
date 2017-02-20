@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 		hopper = new Hopper();
 		scaler = new Scaler();
 		shooter = new Shooter();
-		targetingSystem = new TargetingSystem();
+		//targetingSystem = new TargetingSystem();
 
 		// OI must be constructed after subsystems. If the OI creates Commands
 		// (which it very likely will), subsystems are not guaranteed to be
