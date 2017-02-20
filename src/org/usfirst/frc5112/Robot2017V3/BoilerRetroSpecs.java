@@ -37,7 +37,7 @@ public class BoilerRetroSpecs implements TargetSpecs{
 
 	@Override
 	public double getArea() {
-		return 0;
+		return getWidth()*getHeight();
 	}
 
 	@Override

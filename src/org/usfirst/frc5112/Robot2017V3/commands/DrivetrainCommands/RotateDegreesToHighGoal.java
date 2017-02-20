@@ -15,7 +15,7 @@ public class RotateDegreesToHighGoal extends Command {
 	private PID pidController;
 	private double currentAngle;
 	private double targetAngle;
-	private boolean goal = false;
+//	private boolean goal = false;
 
 	public RotateDegreesToHighGoal(double targetAngle) {
 		requires(Robot.drivetrain);
@@ -25,7 +25,7 @@ public class RotateDegreesToHighGoal extends Command {
 
 	public RotateDegreesToHighGoal() {
 		requires(Robot.drivetrain);
-		goal = true;
+//		goal = true;
 		setTimeout(4);
 	}
 

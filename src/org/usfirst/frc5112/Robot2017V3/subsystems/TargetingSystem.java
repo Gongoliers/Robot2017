@@ -2,6 +2,8 @@ package org.usfirst.frc5112.Robot2017V3.subsystems;
 
 import java.util.List;
 
+import org.usfirst.frc5112.Robot2017V3.Boiler;
+import org.usfirst.frc5112.Robot2017V3.BoilerRetroSpecs;
 import org.usfirst.frc5112.Robot2017V3.Peg;
 import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
@@ -11,7 +13,7 @@ import com.kylecorry.frc.vision.TargetGroup;
 import com.kylecorry.frc.vision.TargetGroupDetector;
 import com.kylecorry.geometry.Point;
 
-import edu.wpi.cscore.UsbCamera;
+//import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -27,7 +29,7 @@ public class TargetingSystem extends Subsystem {
 	// TODO: Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	public TargetingSystem() {
-		boilerDetector = new TargetGroupDetector(null, null);
+		//boilerDetector = new TargetGroupDetector(new BoilerRetroSpecs(), new Boiler());
 		pegDetector = new TargetGroupDetector(new PegRetroreflective(), new Peg());
 		VideoCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
 		cam0.setResolution(640, 480);
@@ -35,8 +37,8 @@ public class TargetingSystem extends Subsystem {
 		cam1.setResolution(640, 480);
 		pegCamera = new CameraSource(cam0);
 		boilerCamera = new CameraSource(cam1);	
-		enableTargetMode(pegCamera);
-		enableTargetMode(boilerCamera);
+		disableTargetMode(pegCamera);
+		disableTargetMode(boilerCamera);
 		enablePegCamera();
 	}
 	
