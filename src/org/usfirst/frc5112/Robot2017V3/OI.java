@@ -2,6 +2,8 @@ package org.usfirst.frc5112.Robot2017V3;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import java.awt.DisplayMode;
+
 import org.usfirst.frc5112.Robot2017V3.commands.*;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveBackwards;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveForward;
@@ -33,6 +35,7 @@ import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.StopShooter;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithHighGoal;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.buttons.*;
 
 /**
@@ -118,7 +121,7 @@ public class OI {
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 		SmartDashboard.putData("StopEverything", new StopEverything());
 		SmartDashboard.putData("AlignWithHighGoal", new AlignWithHighGoal());
-		
+		//SmartDashboard.putData("Camera", (Sendable) Robot.targetingSystem.currentCamera.getPicture());
 		
 		// XBOX Controller Initialization
 		xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter direction

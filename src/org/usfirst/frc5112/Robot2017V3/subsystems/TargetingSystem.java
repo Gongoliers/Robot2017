@@ -13,6 +13,7 @@ import com.kylecorry.geometry.Point;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**

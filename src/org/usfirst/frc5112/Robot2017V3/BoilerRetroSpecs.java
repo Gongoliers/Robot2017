@@ -37,7 +37,6 @@ public class BoilerRetroSpecs implements TargetSpecs{
 
 	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

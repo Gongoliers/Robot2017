@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RotateDegreesToHighGoal extends Command {
 
 	private PID pidController;
+	private double currentAngle;
 	private double targetAngle;
 	private boolean goal = false;
 
@@ -30,23 +31,23 @@ public class RotateDegreesToHighGoal extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		if (goal) {
-			targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetBoilerAngle.gyroAngle;
-		}
-
-		targetAngle += RobotMap.gyro.getAngle();
+//		if (goal) {
+	//		targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetBoilerAngle.gyroAngle;
+		//}
+		targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetBoilerAngle.gyroAngle-90;
+		currentAngle = RobotMap.gyro.getAngle();
 		pidController = new PID(0.12/2, 0, 0.06, 0);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		//SmartDashboard.putNumber("Heading", RobotMap.gyro.getAngle());
-		Robot.drivetrain.rotateClockwise(pidController.getOutput(RobotMap.gyro.getAngle(), targetAngle));
+		Robot.drivetrain.rotateClockwise(pidController.getOutput(currentAngle, targetAngle));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return pidController.isAtTargetPosition(RobotMap.gyro.getAngle(), targetAngle) || isTimedOut();
+		return pidController.isAtTargetPosition(currentAngle, targetAngle) || isTimedOut();
 	}
 
 	// Called once after isFinished returns true
