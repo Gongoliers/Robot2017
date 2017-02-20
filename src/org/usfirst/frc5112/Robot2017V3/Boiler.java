@@ -6,31 +6,31 @@ public class Boiler implements TargetGroupSpecs{
 
 	@Override
 	public Alignment getAlignment() {
-		// TODO Auto-generated method stub
+		// TODO: Set return value.
 		return null;
 	}
 
 	@Override
 	public double getGroupHeight() {
-		// TODO Auto-generated method stub
+		// TODO: Set return value.
 		return 0;
 	}
 
 	@Override
 	public double getGroupWidth() {
-		// TODO Auto-generated method stub
+		// TODO: Set return value.
 		return 0;
 	}
 
 	@Override
 	public double getTargetHeightRatio() {
-		// TODO Auto-generated method stub
+		// TODO: Set return value.
 		return 0;
 	}
 
 	@Override
 	public double getTargetWidthRatio() {
-		// TODO Auto-generated method stub
+		// TODO: Set return value.
 		return 0;
 	}
 
