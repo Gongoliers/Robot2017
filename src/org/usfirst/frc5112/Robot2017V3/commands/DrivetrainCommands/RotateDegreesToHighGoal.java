@@ -31,10 +31,7 @@ public class RotateDegreesToHighGoal extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-//		if (goal) {
-	//		targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetBoilerAngle.gyroAngle;
-		//}
-		targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetBoilerAngle.gyroAngle-90;
+		targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetBoilerAngle.gyroAngle;
 		currentAngle = RobotMap.gyro.getAngle();
 		pidController = new PID(0.12/2, 0, 0.06, 0);
 	}
