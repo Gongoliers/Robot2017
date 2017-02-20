@@ -28,9 +28,9 @@ public class TargetingSystem extends Subsystem {
 	public TargetingSystem() {
 		boilerDetector = new TargetGroupDetector(null, null);
 		pegDetector = new TargetGroupDetector(new PegRetroreflective(), new Peg());
-		VideoCamera cam0 = new UsbCamera("peg", 0);
+		VideoCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
 		cam0.setResolution(640, 480);
-		VideoCamera cam1 = new UsbCamera("boiler", 1);
+		VideoCamera cam1 = CameraServer.getInstance().startAutomaticCapture(1);
 		cam1.setResolution(640, 480);
 		pegCamera = new CameraSource(cam0);
 		boilerCamera = new CameraSource(cam1);	
