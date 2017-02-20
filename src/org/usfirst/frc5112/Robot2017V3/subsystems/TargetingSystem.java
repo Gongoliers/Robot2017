@@ -2,10 +2,10 @@ package org.usfirst.frc5112.Robot2017V3.subsystems;
 
 import java.util.List;
 
-import org.usfirst.frc5112.Robot2017V3.Boiler;
+/*import org.usfirst.frc5112.Robot2017V3.Boiler;
 import org.usfirst.frc5112.Robot2017V3.BoilerRetroSpecs;
 import org.usfirst.frc5112.Robot2017V3.Peg;
-import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;
+import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;*/
 //import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
 
 import com.kylecorry.frc.vision.CameraSource;

@@ -1,4 +1,4 @@
-package org.usfirst.frc5112.Robot2017V3;
+/*package org.usfirst.frc5112.Robot2017V3;
 
 import com.kylecorry.frc.vision.TargetGroupSpecs;
 
@@ -6,7 +6,7 @@ public class Boiler implements TargetGroupSpecs{
 
 	@Override
 	public Alignment getAlignment() {
-		// TODO: Set return value.
+			
 		return null;
 	}
 
@@ -35,3 +35,4 @@ public class Boiler implements TargetGroupSpecs{
 	}
 
 }
+*/
