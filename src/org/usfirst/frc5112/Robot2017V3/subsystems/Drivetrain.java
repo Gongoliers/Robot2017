@@ -13,10 +13,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drivetrain extends Subsystem {
 
-	// private final SpeedController leftRear = RobotMap.drivetrainLeftRear;
-	// private final SpeedController rightRear = RobotMap.drivetrainRightRear;
-	// private final SpeedController leftFront = RobotMap.drivetrainLeftFront;
-	// private final SpeedController rightFront = RobotMap.drivetrainRightFront;
 	private final RobotDrive drivetrain = RobotMap.drivetrainDrivetrain;
 	
 	private boolean invertedRotating = false;
@@ -110,9 +106,9 @@ public class Drivetrain extends Subsystem {
 		if (!invertedRotating) {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()*0.75);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()*0.90);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()*0.75);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()*0.90);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ()*0.75);
@@ -120,9 +116,9 @@ public class Drivetrain extends Subsystem {
 		} else {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()*0.75 * -1);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()*0.90 * -1);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()*0.75 * -1);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()*0.90 * -1);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ()*0.75 * -1);

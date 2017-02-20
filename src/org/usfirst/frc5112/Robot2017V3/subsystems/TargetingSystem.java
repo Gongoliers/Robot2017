@@ -35,8 +35,8 @@ public class TargetingSystem extends Subsystem {
 		cam1.setResolution(640, 480);
 		pegCamera = new CameraSource(cam0);
 		boilerCamera = new CameraSource(cam1);	
-		//disableTargetMode(pegCamera);
-		//disableTargetMode(boilerCamera);
+		disableTargetMode(pegCamera);
+		disableTargetMode(boilerCamera);
 		enablePegCamera();
 	}
 	
