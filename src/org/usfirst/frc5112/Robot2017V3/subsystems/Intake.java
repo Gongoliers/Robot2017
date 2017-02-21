@@ -14,6 +14,7 @@ public class Intake extends Subsystem implements IntakeInterface {
 
 	private final SpeedController intakeMotor = RobotMap.intakeIntakeMotor;
 	public double intakeSpeed = 0.25;
+	public double intakeSpeedFinal = 0.75;
 	
 	public void initDefaultCommand() {
 		setDefaultCommand(new StopIntake());

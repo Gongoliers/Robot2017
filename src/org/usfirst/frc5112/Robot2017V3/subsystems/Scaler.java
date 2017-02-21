@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Scaler extends Subsystem implements LifterInterface {
 	
 	public double scalerSpeed = 0.25;
+	public double camCamSpeed = 0.10;
+	public double scalerSpeedFinal = 0.75;
 
 	private final SpeedController scalerMotor = RobotMap.scalerScalerMotor;
 
