@@ -106,9 +106,9 @@ public class Drivetrain extends Subsystem {
 		if (!invertedRotating) {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()*0.90);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ());
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()*0.90);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ());
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ()*0.75);
@@ -116,9 +116,9 @@ public class Drivetrain extends Subsystem {
 		} else {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()*0.90 * -1);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()* -1);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()*0.90 * -1);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()* -1);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ()*0.75 * -1);
