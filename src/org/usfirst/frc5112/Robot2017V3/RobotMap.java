@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -79,8 +80,7 @@ public class RobotMap {
 		gyro.calibrate();
 		
 		tf = new TransformationMap();
-		tf.put("PegCamera", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
-		tf.put("BoilerCamera", "PegCamera", new Pose(new Point(0, inchesToMeters(-1.5), inchesToMeters(3)), new Quaternion(Math.PI/4, Vector3.i)));
+		tf.put("PegCamera", new Pose(new Point(inchesToMeters(-11.25), inchesToMeters(16), inchesToMeters(12)), Quaternion.zero));
 		tf.put("Intake", new Pose(new Point(0, inchesToMeters(16), 0), Quaternion.zero));
 		tf.put("GearHolster", new Pose(new Point(inchesToMeters(0.5), inchesToMeters(14.75), inchesToMeters(14)), Quaternion.zero));
 		tf.put("Shooter", new Pose(new Point(inchesToMeters(-6.25), inchesToMeters(-9.75), inchesToMeters(11.25)), Quaternion.zero));

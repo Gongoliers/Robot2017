@@ -1,4 +1,4 @@
-/*package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Robot;
 import org.usfirst.frc5112.Robot2017V3.RobotMap;
@@ -6,10 +6,8 @@ import org.usfirst.frc5112.Robot2017V3.RobotMap;
 import com.thegongoliers.output.PID;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-*//**
- *
- *//*
 public class RotateDegreesToPeg extends Command {
 
 	private PID pidController;
@@ -33,14 +31,21 @@ public class RotateDegreesToPeg extends Command {
 		if (goal) {
 			targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetPegAngle.gyroAngle;
 		}
+		
+		System.out.println(targetAngle);
 
-		targetAngle += RobotMap.gyro.getAngle();
-		pidController = new PID(0.12/2, 0, 0.06, 0);// RobotMap.robotCamera.getViewAngle()/2*0.02);
+		
+		if(targetAngle == Double.MAX_VALUE){
+			targetAngle = RobotMap.gyro.getAngle();
+		} else {
+			targetAngle += RobotMap.gyro.getAngle();
+		}
+		pidController = new PID(0.06, 0, 0.06, 0);// RobotMap.robotCamera.getViewAngle()/2*0.02);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		//SmartDashboard.putNumber("Heading", RobotMap.gyro.getAngle());
+		SmartDashboard.putNumber("Heading", RobotMap.gyro.getAngle());
 		Robot.drivetrain.rotateClockwise(pidController.getOutput(RobotMap.gyro.getAngle(), targetAngle));
 	}
 
@@ -60,4 +65,3 @@ public class RotateDegreesToPeg extends Command {
 		end();
 	}
 }
-*/

@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Intake extends Subsystem implements IntakeInterface {
 
 	private final SpeedController intakeMotor = RobotMap.intakeIntakeMotor;
-	public double intakeSpeed = 0.25;
+	public double intakeSpeed = 0.75;
 	public double intakeSpeedFinal = 0.6;
 	
 	public void initDefaultCommand() {

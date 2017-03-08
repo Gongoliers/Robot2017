@@ -1,4 +1,4 @@
-/*package org.usfirst.frc5112.Robot2017V3;
+package org.usfirst.frc5112.Robot2017V3;
 import org.opencv.core.Range;
 
 import com.kylecorry.frc.vision.TargetSpecs;
@@ -10,19 +10,19 @@ public class PegRetroreflective implements TargetSpecs{
 		
 	}
 	
-	@Override
+	@Override	
 	public Range getHue() {
-		return new Range(75, 125);
+		return new Range(50, 75);
 	}
 
 	@Override
 	public Range getSaturation() {
-		return new Range(175, 255);
+		return new Range(90, 255);
 	}
 
 	@Override
 	public Range getValue() {
-		return new Range(65, 255);
+		return new Range(0, 255);
 	}
 
 	@Override
@@ -42,8 +42,7 @@ public class PegRetroreflective implements TargetSpecs{
 
 	@Override
 	public int getMinPixelArea() {
-		return 125;
+		return 8;
 	}
 
 }
-*/

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Shooter extends Subsystem implements FlywheelInterface {
 
-	public double shooterSpeed = 0.25;
+	public double shooterSpeed = 0.425;
 	public double shooterSpeedFinal = 0.425;
 	
 	private final SpeedController flywheel = RobotMap.shooterFlywheel;

@@ -30,6 +30,8 @@ import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.IncreaseShooterS
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterClockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterCounterclockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.StopShooter;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithPeg;
+
 /*import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.BoilerCameraEnable;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.PegCameraEnable;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.TargetingModeOff;
@@ -125,7 +127,7 @@ public class OI {
     	//Command Groups
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 		SmartDashboard.putData("StopEverything", new StopEverything());
-		//SmartDashboard.putData("AlignWithHighGoal", new AlignWithHighGoal());
+		SmartDashboard.putData("AlignWithPeg", new AlignWithPeg());
 		
 		// XBOX Controller Initialization
 		xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter direction

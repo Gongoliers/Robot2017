@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="Libs/Geometry-0.5.jar"/>
 	<classpathentry kind="lib" path="Libs/CoordinateFrames-0.6.jar"/>
 	<classpathentry kind="lib" path="Libs/RobotVisionAPI-0.4.2.jar"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/TalonSRXLibJava.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

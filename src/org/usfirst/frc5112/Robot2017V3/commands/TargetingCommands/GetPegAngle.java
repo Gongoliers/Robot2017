@@ -1,5 +1,6 @@
-/*package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
 
+import org.usfirst.frc5112.Robot2017V3.Peg;
 import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;
 import org.usfirst.frc5112.Robot2017V3.Robot;
 import org.usfirst.frc5112.Robot2017V3.subsystems.TargetingSystem;
@@ -9,9 +10,7 @@ import com.kylecorry.geometry.Point;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-*//**
- *
- *//*
+
 public class GetPegAngle extends Command {
 
 	public static double gyroAngle = 0;
@@ -22,15 +21,16 @@ public class GetPegAngle extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.targetingSystem.enablePegCamera();
-		Point gyroPoint = Robot.targetingSystem.getPegPosition(640, CameraSpecs.MicrosoftLifeCam.HORIZONTAL_VIEW_ANGLE,
-				new PegRetroreflective().getWidth());
-		if (gyroPoint != null) {
-			gyroAngle = TargetingSystem.getAngle(gyroPoint.x, gyroPoint.y) - 90;
-		}
-		else{
-			gyroAngle = Double.MAX_VALUE;
-		}
+		gyroAngle = Robot.targetingSystem.getPegPosition(160, CameraSpecs.MicrosoftLifeCam.HORIZONTAL_VIEW_ANGLE,
+				new Peg().getGroupWidth());
+//		Point gyroPoint = Robot.targetingSystem.getPegPosition(160, CameraSpecs.MicrosoftLifeCam.HORIZONTAL_VIEW_ANGLE,
+//				new Peg().getGroupWidth());
+//		if (gyroPoint != null) {
+////			gyroAngle = TargetingSystem.getAngle(gyroPoint.x, gyroPoint.y) - 90;
+//		}
+//		else{
+//			gyroAngle = Double.MAX_VALUE;
+//		}
 		
 	}
 
@@ -53,4 +53,3 @@ public class GetPegAngle extends Command {
 	protected void interrupted() {
 	}
 }
-*/
