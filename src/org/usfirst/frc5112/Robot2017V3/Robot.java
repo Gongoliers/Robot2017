@@ -1,12 +1,18 @@
 package org.usfirst.frc5112.Robot2017V3;
 
-import org.usfirst.frc5112.Robot2017V3.commands.*;
+import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.DriveForwardLine;
+import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.PlaceGearLeftPeg;
+import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.PlaceGearMiddlePeg;
+import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.PlaceGearRightPeg;
+import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.DoNothing;
 import org.usfirst.frc5112.Robot2017V3.subsystems.*;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -16,7 +22,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	
+
 	Command autonomousCommand;
 
 	public static OI oi;
@@ -26,7 +32,8 @@ public class Robot extends IterativeRobot {
 	public static Scaler scaler;
 	public static Shooter shooter;
 	public static TargetingSystem targetingSystem;
-	
+	public SendableChooser<Command> chooser;
+
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -39,6 +46,15 @@ public class Robot extends IterativeRobot {
 		scaler = new Scaler();
 		shooter = new Shooter();
 		targetingSystem = new TargetingSystem();
+		chooser = new SendableChooser<>();
+
+		chooser.addDefault("Do nothing", new DoNothing());
+		chooser.addObject("Move Forward", new DriveForwardLine());
+		chooser.addObject("Middle Peg", new PlaceGearMiddlePeg());
+		chooser.addObject("Left Peg", new PlaceGearLeftPeg());
+		chooser.addObject("Right Peg", new PlaceGearRightPeg());
+		
+		SmartDashboard.putData("Auto chooser", chooser);
 
 		// OI must be constructed after subsystems. If the OI creates Commands
 		// (which it very likely will), subsystems are not guaranteed to be
@@ -47,8 +63,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 
 		// Instantiate the command used for the autonomous period
-		autonomousCommand = new AutonomousCommand();
-
 	}
 
 	/**
@@ -65,6 +79,7 @@ public class Robot extends IterativeRobot {
 
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
+		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}

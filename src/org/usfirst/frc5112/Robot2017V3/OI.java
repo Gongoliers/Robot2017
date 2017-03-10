@@ -31,6 +31,7 @@ import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterClock
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterCounterclockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.StopShooter;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithPeg;
+import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.DriveForwardLine;
 
 /*import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.BoilerCameraEnable;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.PegCameraEnable;
@@ -125,7 +126,7 @@ public class OI {
     	SmartDashboard.putNumber("ShooterSpeedDisplay", Robot.shooter.shooterSpeed);
     	
     	//Command Groups
-		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+		SmartDashboard.putData("Autonomous Command", new DriveForwardLine());
 		SmartDashboard.putData("StopEverything", new StopEverything());
 		SmartDashboard.putData("AlignWithPeg", new AlignWithPeg());
 		

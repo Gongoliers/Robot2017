@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class PlaceGearMiddlePeg extends CommandGroup {
+public class DriveForwardLine extends CommandGroup {
 
-	public PlaceGearMiddlePeg() {
-		addSequential(new DriveForward(), 5);
+	public DriveForwardLine() {
+		addSequential(new DriveForward(), 7.5);
 	
 	}
 }

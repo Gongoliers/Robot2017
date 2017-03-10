@@ -1,5 +1,8 @@
 package org.usfirst.frc5112.Robot2017V3.commands.autoCommands;
 
+import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveForward;
+import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RotateDegreesToPeg;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -7,22 +10,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class PlaceGearRightPeg extends CommandGroup {
 
-    public PlaceGearRightPeg() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-    }
+	public PlaceGearRightPeg() {
+		addSequential(new DriveForward(), 5);
+		addSequential(new RotateDegreesToPeg());
+		addSequential(new DriveForward(), 4);
+	}
 }
