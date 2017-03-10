@@ -2,6 +2,8 @@ package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Robot;
 import org.usfirst.frc5112.Robot2017V3.RobotMap;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetPegAngle;
+import org.usfirst.frc5112.Robot2017V3.subsystems.TargetingSystem;
 
 import com.thegongoliers.output.PID;
 
@@ -28,34 +30,48 @@ public class RotateDegreesToPeg extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		if (goal) {
-			targetAngle = org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetPegAngle.gyroAngle;
-		}
-		
-		System.out.println(targetAngle);
 
-		
-		if(targetAngle == Double.MAX_VALUE){
+		// If the robot is supposed to rotate to the target, set the target
+		// angle to that of the target
+		if (goal) {
+			targetAngle = GetPegAngle.gyroAngle;
+		}
+
+		// If the target was not found, don't rotate - set the target angle to
+		// the current angle
+		if (!SmartDashboard.getBoolean(TargetingSystem.TARGET_LOCATED_KEY, false)) {
 			targetAngle = RobotMap.gyro.getAngle();
 		} else {
+			// Else, add the current angle to the angle to the target
 			targetAngle += RobotMap.gyro.getAngle();
 		}
-		pidController = new PID(0.06, 0, 0.06, 0);// RobotMap.robotCamera.getViewAngle()/2*0.02);
+
+		// Create the PID controller for rotating to the target
+		// TODO: The P value (first) may need to be tuned
+		pidController = new PID(0.06, 0, 0.06, 0);
+
+		// Display the target angle on the Smart Dashboard
+		SmartDashboard.putNumber("Target angle", targetAngle);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		// Display the gyro heading on the Smart Dashboard
 		SmartDashboard.putNumber("Heading", RobotMap.gyro.getAngle());
+
+		// Rotate towards the target
 		Robot.drivetrain.rotateClockwise(pidController.getOutput(RobotMap.gyro.getAngle(), targetAngle));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
+		// Stop if timed out or aligned with the target
 		return pidController.isAtTargetPosition(RobotMap.gyro.getAngle(), targetAngle) || isTimedOut();
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
+		// Stop rotating
 		Robot.drivetrain.stop();
 	}
 

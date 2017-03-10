@@ -6,9 +6,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AlignWithPeg extends CommandGroup {
 
-    public AlignWithPeg() {
-        addSequential(new GetPegAngle());
-        addSequential(new RotateDegreesToPeg());
-        
-    }
+	public AlignWithPeg() {
+		addSequential(new TargetingModeOn());
+		addSequential(new GetPegAngle());
+		addParallel(new TargetingModeOff());
+		addParallel(new RotateDegreesToPeg());
+	}
 }

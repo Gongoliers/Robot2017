@@ -1,4 +1,4 @@
-/*package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Robot;
 
@@ -8,6 +8,7 @@ public class TargetingModeOn extends Command {
 
 	public TargetingModeOn() {
 		requires(Robot.targetingSystem);
+		setTimeout(1);
 	}
 
 	protected void initialize() {
@@ -19,15 +20,14 @@ public class TargetingModeOn extends Command {
 	}
 
 	protected boolean isFinished() {
-		return true;
+		return isTimedOut();
 	}
 
 	protected void end() {
-		Robot.targetingSystem.enableTargetMode(Robot.targetingSystem.currentCamera);
+		Robot.targetingSystem.enableTargetMode();
 	}
 
 	protected void interrupted() {
 		end();
 	}
 }
-*/
