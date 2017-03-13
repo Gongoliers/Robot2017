@@ -1,7 +1,6 @@
 package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,22 +8,23 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveForward extends Command {
 
-	public DriveForward() {
+	private double y;
+	public DriveForward(double x) {
 		requires(Robot.drivetrain);
+		y = x;
 	}
 
 	/**
 	 * Called just before this Command runs the first time
 	 */
 	protected void initialize() {
-
 	}
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		Robot.drivetrain.forward(0.5);
+		Robot.drivetrain.forward(y);
 	}
 
 	/**

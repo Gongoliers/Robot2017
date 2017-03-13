@@ -1,15 +1,16 @@
 package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class DriveBackwards extends Command {
-
-	public DriveBackwards() {
+	
+	private double y;
+	public DriveBackwards(double x) {
+		y = x;
 		requires(Robot.drivetrain);
 	}
 
@@ -23,7 +24,7 @@ public class DriveBackwards extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		Robot.drivetrain.reverse(0.25);
+		Robot.drivetrain.reverse(y);
 	}
 
 	/**

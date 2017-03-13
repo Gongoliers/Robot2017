@@ -15,7 +15,7 @@ public class Scaler extends Subsystem implements LifterInterface {
 	
 	public double scalerSpeed = 0.25;
 	public double camCamSpeed = 0.15;
-	public double scalerSpeedFinal = 0.75;
+	public double scalerSpeedFinal = 1;
 
 	private final SpeedController scalerMotor = RobotMap.scalerScalerMotor;
 
@@ -52,7 +52,7 @@ public class Scaler extends Subsystem implements LifterInterface {
 
 	@Override
 	public void up(double speed) {
-		scalerMotor.set(speed);
+		scalerMotor.set(-1*speed);
 
 	}
 

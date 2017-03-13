@@ -1,7 +1,7 @@
 package org.usfirst.frc5112.Robot2017V3.commands.autoCommands;
 
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.DriveForward;
-import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RotateDegreesToPeg;
+import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithPeg;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PlaceGearRightPeg extends CommandGroup {
 
 	public PlaceGearRightPeg() {
-		addSequential(new DriveForward(), 5);
-		addSequential(new RotateDegreesToPeg());
-		addSequential(new DriveForward(), 4);
+		addSequential(new DriveForward(.5), 5);
+		addSequential(new AlignWithPeg());
+		addSequential(new DriveForward(.25), 4);
 	}
 }

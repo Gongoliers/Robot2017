@@ -23,7 +23,7 @@ public class SpinShooterCounterclockwise extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		Robot.shooter.spinOutward(Robot.shooter.shooterSpeed);
+		Robot.shooter.spinOutward(Robot.shooter.shooterSpeedFinal);
 	}
 
 	/**

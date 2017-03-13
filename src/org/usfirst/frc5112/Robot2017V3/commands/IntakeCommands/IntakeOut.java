@@ -23,7 +23,7 @@ public class IntakeOut extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		Robot.intake.out(Robot.intake.intakeSpeed);
+		Robot.intake.out(Robot.intake.intakeSpeedFinal);
 	}
 
 	/**

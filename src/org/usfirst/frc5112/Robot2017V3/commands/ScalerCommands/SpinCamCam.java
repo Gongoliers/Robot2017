@@ -1,32 +1,35 @@
-/*package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ *
+ */
+public class SpinCamCam extends Command {
 
-public class BoilerCameraEnable extends Command {
-
-	public BoilerCameraEnable() {
-		requires(Robot.targetingSystem);
+	public SpinCamCam() {
+		requires(Robot.scaler);
 	}
 
 	protected void initialize() {
-		Robot.targetingSystem.enableBoilerCamera();
+
 	}
 
 	protected void execute() {
+		Robot.scaler.up(Robot.scaler.camCamSpeed);
 	}
 
 	protected boolean isFinished() {
-		return true;
+		return false;
 	}
 
 	protected void end() {
+		Robot.scaler.stop();
 	}
 
 	protected void interrupted() {
 		end();
 	}
 }
-*/

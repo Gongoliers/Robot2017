@@ -9,8 +9,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ScalerUp extends Command {
 
-	public ScalerUp() {
+	private double y;
+	public ScalerUp(double x) {
 		requires(Robot.scaler);
+		y = x;
 	}
 
 	protected void initialize() {
@@ -18,7 +20,7 @@ public class ScalerUp extends Command {
 	}
 
 	protected void execute() {
-		Robot.scaler.up(Robot.scaler.scalerSpeed);
+		Robot.scaler.up(y);
 	}
 
 	protected boolean isFinished() {

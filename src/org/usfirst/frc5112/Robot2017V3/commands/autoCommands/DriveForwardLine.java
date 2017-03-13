@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DriveForwardLine extends CommandGroup {
 
 	public DriveForwardLine() {
-		addSequential(new DriveForward(), 7.5);
+		addSequential(new DriveForward(.25), 5);
 	
 	}
 }

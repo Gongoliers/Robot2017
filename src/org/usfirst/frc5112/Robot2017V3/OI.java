@@ -81,8 +81,8 @@ public class OI {
 		SmartDashboard.putData("OperatorControl", new OperatorControl());
 		SmartDashboard.putData("InvertMotors", new InvertMotors());
 		SmartDashboard.putData("RestoreMotorDirection", new RestoreMotorDirection());
-		SmartDashboard.putData("Forward", new DriveForward());
-		SmartDashboard.putData("Reverse", new DriveBackwards());
+		SmartDashboard.putData("Forward", new DriveForward(.25));
+		SmartDashboard.putData("Reverse", new DriveBackwards(.25));
 		SmartDashboard.putData("StopDrivetrain", new StopDrivetrain());
 		SmartDashboard.putData("RotateClockwise", new RotateClockwise());
 		SmartDashboard.putData("RotateCounterclockwise", new RotateCounterclockwise());
@@ -114,7 +114,7 @@ public class OI {
 		SmartDashboard.putNumber("ScalerSpeedDisplay", Robot.scaler.scalerSpeed);
 		SmartDashboard.putData("IncreaseScalerSpeed", new IncreaseScalerSpeedManual());
 		SmartDashboard.putData("DecreaseScalerSpeed", new DecreaseScalerSpeedManual());
-		SmartDashboard.putData("ScalerUp", new ScalerUp());
+		SmartDashboard.putData("ScalerUp", new ScalerUp(0));
 		SmartDashboard.putData("StopScaler", new StopScaler());
 		
 		// SmartDashboard - Shooter
@@ -131,22 +131,22 @@ public class OI {
 		SmartDashboard.putData("AlignWithPeg", new AlignWithPeg());
 		
 		// XBOX Controller Initialization
-		xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter direction
-		xbox.LT.whenActive(new SpinShooterCounterclockwise());		//
+//		xbox.RT.whenActive(new SpinShooterClockwise());				// SIDE TRIGGERS control the shooter direction
+//		xbox.LT.whenActive(new SpinShooterCounterclockwise());		//
 		
-		xbox.LB.whenPressed(new DecreaseShooterSpeedManual());		// SIDE BUTTONS control the shooter speed
-		xbox.RB.whenPressed(new IncreaseShooterSpeedManual());		//
+//		xbox.LB.whenPressed(new DecreaseShooterSpeedManual());		// SIDE BUTTONS control the shooter speed
+//		xbox.RB.whenPressed(new IncreaseShooterSpeedManual());		//
 		
-		xbox.START.toggleWhenPressed(new IntakeIn());				// START BUTTON toggles the inward intake
+//		xbox.START.toggleWhenPressed(new IntakeIn());				// START BUTTON toggles the inward intake
 		xbox.BACK.whileHeld(new StopEverything());				    // BACK BUTTON stops all robot systems
 		
-		xbox.DPAD_UP.whileActive(new IntakeIn());					// UP BUTTON intakes fuel
-		xbox.DPAD_DOWN.whileActive(new IntakeOut());				// DOWN BUTTON out-takes fuel
-		xbox.DPAD_LEFT.whileActive(new ScalerUp());					// LEFT BUTTON climbs the rope
-		xbox.DPAD_RIGHT.whileActive(new ScalerUp());				// RIGHT BUTTON climbs the rope
+//		xbox.DPAD_UP.whileActive(new IntakeIn());					// UP BUTTON intakes fuel
+//		xbox.DPAD_DOWN.whileActive(new IntakeOut());				// DOWN BUTTON out-takes fuel
+//		xbox.DPAD_LEFT.whileActive(new ScalerUp());					// LEFT BUTTON climbs the rope
+//		xbox.DPAD_RIGHT.whileActive(new AlignWithPeg());				// RIGHT BUTTON climbs the rope
 		
-		xbox.Y.whenPressed(new StopIntake());						// Y BUTTON stops the intake
-		xbox.A.whenPressed(new StopDrivetrain());					// A BUTTON stops the drivetrain
+		xbox.Y.whileHeld(new ScalerUp(.35));						// Y BUTTON stops the intake
+		xbox.A.whileHeld(new ScalerUp(1.0));					// A BUTTON stops the drivetrain
 		xbox.X.whenPressed(new StopScaler());						// X BUTTON stops the scaler
 		xbox.B.whenPressed(new StopShooter());						// B BUTTON stops the shooter
 

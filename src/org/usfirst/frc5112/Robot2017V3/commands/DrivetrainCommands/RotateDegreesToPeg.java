@@ -39,8 +39,9 @@ public class RotateDegreesToPeg extends Command {
 
 		// If the target was not found, don't rotate - set the target angle to
 		// the current angle
-		if (!SmartDashboard.getBoolean(TargetingSystem.TARGET_LOCATED_KEY, false)) {
+		if (targetAngle == Double.MAX_VALUE) {
 			targetAngle = RobotMap.gyro.getAngle();
+			
 		} else {
 			// Else, add the current angle to the angle to the target
 			targetAngle += RobotMap.gyro.getAngle();
