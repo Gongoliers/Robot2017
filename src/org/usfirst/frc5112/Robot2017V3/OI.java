@@ -11,25 +11,10 @@ import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RestoreMotorD
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RotateClockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RotateCounterclockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.StopDrivetrain;
-import org.usfirst.frc5112.Robot2017V3.commands.HopperCommands.DecreaseHopperSpeedManual;
-import org.usfirst.frc5112.Robot2017V3.commands.HopperCommands.IncreaseHopperSpeedManual;
-import org.usfirst.frc5112.Robot2017V3.commands.HopperCommands.SpinHopperClockwise;
-import org.usfirst.frc5112.Robot2017V3.commands.HopperCommands.SpinHopperCounterclockwise;
-import org.usfirst.frc5112.Robot2017V3.commands.HopperCommands.StopHopper;
-import org.usfirst.frc5112.Robot2017V3.commands.IntakeCommands.DecreaseIntakeSpeedManual;
-import org.usfirst.frc5112.Robot2017V3.commands.IntakeCommands.IncreaseIntakeSpeedManual;
-import org.usfirst.frc5112.Robot2017V3.commands.IntakeCommands.IntakeIn;
-import org.usfirst.frc5112.Robot2017V3.commands.IntakeCommands.IntakeOut;
-import org.usfirst.frc5112.Robot2017V3.commands.IntakeCommands.StopIntake;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.DecreaseScalerSpeedManual;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.IncreaseScalerSpeedManual;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.ScalerUp;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.StopScaler;
-import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.DecreaseShooterSpeedManual;
-import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.IncreaseShooterSpeedManual;
-import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterClockwise;
-import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.SpinShooterCounterclockwise;
-import org.usfirst.frc5112.Robot2017V3.commands.ShooterCommands.StopShooter;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.AlignWithPeg;
 import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.DriveForwardLine;
 
@@ -92,23 +77,6 @@ public class OI {
 //		SmartDashboard.putData("TargetingModeOn", new TargetingModeOn());
 //		SmartDashboard.putData("EnableBoilerCam", new BoilerCameraEnable());
 //		SmartDashboard.putData("EnablePegCam", new PegCameraEnable());
-		
-		
-		// SmartDashboard - Intake
-		SmartDashboard.putData("IntakeIn", new IntakeIn());
-		SmartDashboard.putData("IntakeOut", new IntakeOut());
-		SmartDashboard.putData("StopIntake", new StopIntake());
-		SmartDashboard.putData("IncreaseIntakeSpeed", new IncreaseIntakeSpeedManual());
-		SmartDashboard.putData("DecreaseIntakeSpeed", new DecreaseIntakeSpeedManual());
-		SmartDashboard.putNumber("IntakeSpeedDisplay", Robot.intake.intakeSpeed);
-    	
-		// SmartDashboard - Hopper
-		SmartDashboard.putData("SpinHopperClockwise", new SpinHopperClockwise());
-		SmartDashboard.putData("SpinHopperCounterclockwise", new SpinHopperCounterclockwise());
-		SmartDashboard.putData("StopHopper", new StopHopper());
-		SmartDashboard.putData("IncreaseHopperSpeed", new IncreaseHopperSpeedManual());
-		SmartDashboard.putData("DecreaseHopperSpeed", new DecreaseHopperSpeedManual());
-		SmartDashboard.putNumber("HopperSpeedDisplay", Robot.hopper.hopperSpeed);
     	
 		// SmartDashboard - Scaler
 		SmartDashboard.putNumber("ScalerSpeedDisplay", Robot.scaler.scalerSpeed);
@@ -117,14 +85,6 @@ public class OI {
 		SmartDashboard.putData("ScalerUp", new ScalerUp(0));
 		SmartDashboard.putData("StopScaler", new StopScaler());
 		
-		// SmartDashboard - Shooter
-		SmartDashboard.putData("SpinShooterClockwise", new SpinShooterClockwise());
-		SmartDashboard.putData("SpinShooterCounterclockwise", new SpinShooterCounterclockwise());
-		SmartDashboard.putData("StopShooter", new StopShooter());	
-		SmartDashboard.putData("IncreaseShooterSpeed", new IncreaseShooterSpeedManual());
-		SmartDashboard.putData("DecreaseShooterSpeed", new DecreaseShooterSpeedManual());
-    	SmartDashboard.putNumber("ShooterSpeedDisplay", Robot.shooter.shooterSpeed);
-    	
     	//Command Groups
 		SmartDashboard.putData("Autonomous Command", new DriveForwardLine());
 		SmartDashboard.putData("StopEverything", new StopEverything());
@@ -148,7 +108,6 @@ public class OI {
 		xbox.Y.whileHeld(new ScalerUp(.35));						// Y BUTTON stops the intake
 		xbox.A.whileHeld(new ScalerUp(1.0));					// A BUTTON stops the drivetrain
 		xbox.X.whenPressed(new StopScaler());						// X BUTTON stops the scaler
-		xbox.B.whenPressed(new StopShooter());						// B BUTTON stops the shooter
 
 	}
 

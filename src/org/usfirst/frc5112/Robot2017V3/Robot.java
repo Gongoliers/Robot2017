@@ -27,10 +27,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static Drivetrain drivetrain;
-	public static Intake intake;
-	public static Hopper hopper;
 	public static Scaler scaler;
-	public static Shooter shooter;
 	public static TargetingSystem targetingSystem;
 	public SendableChooser<Command> chooser;
 
@@ -41,10 +38,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		drivetrain = new Drivetrain();
-		intake = new Intake();
-		hopper = new Hopper();
 		scaler = new Scaler();
-		shooter = new Shooter();
 		targetingSystem = new TargetingSystem();
 		chooser = new SendableChooser<>();
 
