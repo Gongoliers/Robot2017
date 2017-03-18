@@ -20,22 +20,9 @@ public class GetPegAngle extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		// Get the position of the peg in X Y coordinates
-		Point gyroPoint = Robot.targetingSystem.getPegPosition(160, CameraSpecs.MicrosoftLifeCam.HORIZONTAL_VIEW_ANGLE,
-				new Peg().getGroupWidth());
 
-		// If the target was found, set the angle to the target and put on the
-		// Smart Dashboard that it was found
-		if (gyroPoint != null) {
-			gyroAngle = 90 - TargetingSystem.getAngle(gyroPoint.x, gyroPoint.y);
-			SmartDashboard.putBoolean("Target Located?", true);
-		} else {
-			// If the target was not found, set the angle to something
-			// unreasonable and put on
-			// the Smart Dashboard that it was not found
-			gyroAngle = Double.MAX_VALUE;
-			SmartDashboard.putBoolean("Target Located?", false);
-		}
+		gyroAngle = Robot.targetingSystem.getPegPosition(160, CameraSpecs.MicrosoftLifeCam.HORIZONTAL_VIEW_ANGLE,
+				new Peg().getGroupWidth());
 
 	}
 

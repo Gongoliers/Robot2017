@@ -23,12 +23,18 @@ public class TargetingSystem extends Subsystem {
 	private TargetGroupDetector pegDetect;
 	private CvSink sink;
 	private Mat source;
-	private UsbCamera camera;
+	private UsbCamera targetingCamera;
+	private UsbCamera pegCamera;
+
 
 	public TargetingSystem() {
 		// Create camera instance
-		camera = CameraServer.getInstance().startAutomaticCapture();
-		camera.setResolution(160, 120);
+		targetingCamera = CameraServer.getInstance().startAutomaticCapture(0);
+		targetingCamera.setResolution(160, 120);
+		
+		// Create peg camera instance
+		pegCamera = CameraServer.getInstance().startAutomaticCapture(1);
+		pegCamera.setResolution(160, 120);
 
 		// Disable the targeting mode
 		disableTargetMode();
@@ -39,30 +45,22 @@ public class TargetingSystem extends Subsystem {
 		// Setup ability to get images from camera
 		source = new Mat();
 		sink = new CvSink("cam0");
-		sink.setSource(camera);
+		sink.setSource(targetingCamera);
 
 	}
 
-	public Point getPegPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
+	public double getPegPosition(int imageWidth, double cameraViewAngle, double targetActualWidth) {
 		// Get the peg target
 		TargetGroup point = getPegTarget();
 
 		if (point == null) {
 			// Target was not found
-			return null;
+			return Double.MAX_VALUE;
 		}
-		// Get the angle of the target in radians
-		double angle = Math.toRadians(90 - point.computeAngle(imageWidth, cameraViewAngle));
+		// Get the angle of the target in degrees
+		double angle = point.computeAngle(imageWidth, cameraViewAngle);
 
-		// Get the distance to the target in meters
-		double distance = point.computeDistance(imageWidth, targetActualWidth, cameraViewAngle);
-
-		// Convert the target from polar to cartesian
-		Point targetPoint = Point.fromCylindrical(distance, angle, 0);
-
-		// Get the target with respect to the holster
-		Point targetFromHolster = RobotMap.tf.transform(targetPoint, "PegCamera", "GearHolster");
-		return targetFromHolster;
+		return angle;
 	}
 
 	public static double getDistance(double x, double y) {
@@ -94,15 +92,15 @@ public class TargetingSystem extends Subsystem {
 
 	public void enableTargetMode() {
 		// Camera settings of target mode
-		camera.setBrightness(0);
-		camera.setExposureManual(0);
-		camera.setWhiteBalanceManual(10000);
+		targetingCamera.setBrightness(0);
+		targetingCamera.setExposureManual(0);
+		targetingCamera.setWhiteBalanceManual(10000);
 	}
 
 	public void disableTargetMode() {
 		// Camera settings of normal mode
-		camera.setBrightness(50);
-		camera.setExposureAuto();
-		camera.setWhiteBalanceAuto();
+		targetingCamera.setBrightness(50);
+		targetingCamera.setExposureAuto();
+		targetingCamera.setWhiteBalanceAuto();
 	}
 }
