@@ -52,13 +52,13 @@ public class Scaler extends Subsystem implements LifterInterface {
 
 	@Override
 	public void up(double speed) {
-		scalerMotor.set(-1*speed);
+		scalerMotor.set(speed);
 
 	}
 
 	@Override
 	public void down(double speed) {
-		
+		scalerMotor.stopMotor();
 
 	}
 
