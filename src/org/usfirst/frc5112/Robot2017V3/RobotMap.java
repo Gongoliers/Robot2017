@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -32,7 +30,7 @@ public class RobotMap {
 	public static SpeedController scalerScalerMotor;
 	public static SpeedController shooterFlywheel;
 	public static TransformationMap tf;
-	public static Gyro gyro;
+	public static AnalogGyro gyro;
 	
 	public static double inchesToMeters(double inches) {
 		return inches*0.0254;
@@ -76,6 +74,7 @@ public class RobotMap {
 		LiveWindow.addActuator("Scaler", "ScalerMotor", (Victor) scalerScalerMotor);
 		
 		gyro = new AnalogGyro(0);
+		gyro.initGyro();
 		gyro.calibrate();
 		
 		tf = new TransformationMap();

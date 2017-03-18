@@ -16,6 +16,10 @@ public class Drivetrain extends Subsystem {
 	private final RobotDrive drivetrain = RobotMap.drivetrainDrivetrain;
 	
 	private boolean invertedRotating = false;
+	private double throttle = 0.7;
+	private double turningThrottle = 0.7;
+	private final double INITIAL_THROTTLE = 0.7;
+	private final double FINAL_THROTTLE = 1.0;
 	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -36,7 +40,7 @@ public class Drivetrain extends Subsystem {
 	 *            The specific speed to move the robot at.
 	 */
 	public void forward(double speed) {
-		drivetrain.drive(-speed, 0);
+		drivetrain.arcadeDrive(-speed, -0.03*RobotMap.gyro.getAngle(), false);
 	}
 
 	/**
@@ -47,7 +51,7 @@ public class Drivetrain extends Subsystem {
 	 *            The specific speed to move the robot at.
 	 */
 	public void reverse(double speed) {
-		drivetrain.drive(speed, 0);
+		drivetrain.arcadeDrive(speed, -0.03*RobotMap.gyro.getAngle(), false);
 	}
 
 	/**
@@ -102,26 +106,30 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void operatorControl(Joystick joystick) {
-//		drivetrain.arcadeDrive(joystick.getY(), joystick.getZ());
+		if (joystick.getRawButton(1)) {
+			throttle = FINAL_THROTTLE;
+		} else {
+			throttle = INITIAL_THROTTLE;
+		}
 		if (!invertedRotating) {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ());
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle), joystick.getZ() * turningThrottle);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ());
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle), joystick.getZ() * turningThrottle);
 				}
 			} else {
-				drivetrain.arcadeDrive(0, joystick.getZ()*0.75);
+				drivetrain.arcadeDrive(0, joystick.getZ() * turningThrottle);
 			}
 		} else {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9), joystick.getZ()* -1);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle), joystick.getZ()* -1 * turningThrottle);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9), joystick.getZ()* -1);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle), joystick.getZ()* -1 * turningThrottle);
 				}
 			} else {
-				drivetrain.arcadeDrive(0, joystick.getZ()*0.75 * -1);
+				drivetrain.arcadeDrive(0, joystick.getZ() * turningThrottle * -1);
 			}
 		}
 	}
