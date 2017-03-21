@@ -1,11 +1,5 @@
-package org.usfirst.frc5112.Robot2017V3;
+package org.usfirst.frc5112.Robot2017V3Test;
 
-import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.DriveForwardLine;
-import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.PlaceGearLeftPeg;
-import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.PlaceGearMiddlePeg;
-import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.PlaceGearRightPeg;
-import org.usfirst.frc5112.Robot2017V3.commands.autoCommands.DoNothing;
-import org.usfirst.frc5112.Robot2017V3.subsystems.*;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -27,8 +21,6 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static Drivetrain drivetrain;
-	public static Scaler scaler;
-	public static TargetingSystem targetingSystem;
 	public SendableChooser<Command> chooser;
 
 	/**
@@ -38,15 +30,8 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		drivetrain = new Drivetrain();
-		scaler = new Scaler();
-		targetingSystem = new TargetingSystem();
 		chooser = new SendableChooser<>();
 
-		chooser.addDefault("Do nothing", new DoNothing());
-		chooser.addObject("Move Forward", new DriveForwardLine());
-		chooser.addObject("Middle Peg", new PlaceGearMiddlePeg());
-		chooser.addObject("Left Peg", new PlaceGearLeftPeg());
-		chooser.addObject("Right Peg", new PlaceGearRightPeg());
 		
 		SmartDashboard.putData("Auto chooser", chooser);
 
