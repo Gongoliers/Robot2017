@@ -1,15 +1,18 @@
-package org.usfirst.frc5112.Robot2017V3Test.commands.DrivetrainCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 
-import org.usfirst.frc5112.Robot2017V3Test.Robot;
+import org.usfirst.frc5112.Robot2017V3.Robot;
+import org.usfirst.frc5112.Robot2017V3.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class StopDrivetrain extends Command {
-
-	public StopDrivetrain() {
+public class DriveBackwards extends Command {
+	
+	private double y;
+	public DriveBackwards(double x) {
+		y = x;
 		requires(Robot.drivetrain);
 	}
 
@@ -17,21 +20,21 @@ public class StopDrivetrain extends Command {
 	 * Called just before this Command runs the first time
 	 */
 	protected void initialize() {
-		end();
+		RobotMap.gyro.reset();
 	}
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		end();
+		Robot.drivetrain.reverse(y);
 	}
 
 	/**
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return true;
+		return false;
 	}
 
 	/**

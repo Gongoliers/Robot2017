@@ -1,4 +1,4 @@
-package org.usfirst.frc5112.Robot2017V3Test;
+package org.usfirst.frc5112.Robot2017V3;
 import com.kylecorry.frc.vision.TargetGroupSpecs;
 
 public class Peg implements TargetGroupSpecs{

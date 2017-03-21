@@ -1,7 +1,7 @@
-package org.usfirst.frc5112.Robot2017V3Test.commands.DrivetrainCommands;
+package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 
-import org.usfirst.frc5112.Robot2017V3Test.Robot;
-import org.usfirst.frc5112.Robot2017V3Test.RobotMap;
+import org.usfirst.frc5112.Robot2017V3.Robot;
+import org.usfirst.frc5112.Robot2017V3.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -20,13 +20,14 @@ public class DriveForward extends Command {
 	 * Called just before this Command runs the first time
 	 */
 	protected void initialize() {
+		RobotMap.gyro.reset();
 	}
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		Robot.drivetrain.reverse();
+		Robot.drivetrain.forward(y);
 	}
 
 	/**
