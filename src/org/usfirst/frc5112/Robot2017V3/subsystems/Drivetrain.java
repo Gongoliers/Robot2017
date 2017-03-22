@@ -135,18 +135,22 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void invertMotors() {
-		drivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
-		drivetrain.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
-		drivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
-        drivetrain.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
+        RobotMap.drivetrainLeftFront.setInverted(false);
+        RobotMap.drivetrainLeftMiddle.setInverted(false);
+        RobotMap.drivetrainLeftRear.setInverted(false);
+        RobotMap.drivetrainRightFront.setInverted(false);
+        RobotMap.drivetrainRightMiddle.setInverted(false);
+        RobotMap.drivetrainRightRear.setInverted(false);
         invertedRotating = true;
 	}
 	
 	public void resetMotorDirection(){
-		drivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-		drivetrain.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-		drivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-        drivetrain.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		RobotMap.drivetrainLeftFront.setInverted(true);
+        RobotMap.drivetrainLeftMiddle.setInverted(true);
+        RobotMap.drivetrainLeftRear.setInverted(true);
+        RobotMap.drivetrainRightFront.setInverted(true);
+        RobotMap.drivetrainRightMiddle.setInverted(true);
+        RobotMap.drivetrainRightRear.setInverted(true);
         invertedRotating = false;
 	}
 	
