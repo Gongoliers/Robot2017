@@ -114,9 +114,9 @@ public class Drivetrain extends Subsystem {
 		if (!invertedRotating) {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle), joystick.getZ() * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle) * -1, joystick.getZ() * turningThrottle);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle), joystick.getZ() * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle) * -1, joystick.getZ() * turningThrottle);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ() * turningThrottle);
@@ -124,9 +124,9 @@ public class Drivetrain extends Subsystem {
 		} else {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle), joystick.getZ()* -1 * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle) * -1, joystick.getZ()* -1 * turningThrottle);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle), joystick.getZ()* -1 * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle) * -1, joystick.getZ()* -1 * turningThrottle);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ() * turningThrottle * -1);
@@ -135,22 +135,22 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void invertMotors() {
-        RobotMap.drivetrainLeftFront.setInverted(false);
-        RobotMap.drivetrainLeftMiddle.setInverted(false);
-        RobotMap.drivetrainLeftRear.setInverted(false);
-        RobotMap.drivetrainRightFront.setInverted(false);
-        RobotMap.drivetrainRightMiddle.setInverted(false);
-        RobotMap.drivetrainRightRear.setInverted(false);
+        RobotMap.drivetrainLeft3.setInverted(false);
+        RobotMap.drivetrainLeft2.setInverted(false);
+        RobotMap.drivetrainLeft1.setInverted(false);
+        RobotMap.drivetrainRight3.setInverted(false);
+        RobotMap.drivetrainRight2.setInverted(false);
+        RobotMap.drivetrainRight1.setInverted(false);
         invertedRotating = true;
 	}
 	
 	public void resetMotorDirection(){
-		RobotMap.drivetrainLeftFront.setInverted(true);
-        RobotMap.drivetrainLeftMiddle.setInverted(true);
-        RobotMap.drivetrainLeftRear.setInverted(true);
-        RobotMap.drivetrainRightFront.setInverted(true);
-        RobotMap.drivetrainRightMiddle.setInverted(true);
-        RobotMap.drivetrainRightRear.setInverted(true);
+		RobotMap.drivetrainLeft3.setInverted(true);
+        RobotMap.drivetrainLeft2.setInverted(true);
+        RobotMap.drivetrainLeft1.setInverted(true);
+        RobotMap.drivetrainRight3.setInverted(true);
+        RobotMap.drivetrainRight2.setInverted(true);
+        RobotMap.drivetrainRight1.setInverted(true);
         invertedRotating = false;
 	}
 	
