@@ -3,8 +3,6 @@ package org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands;
 import org.usfirst.frc5112.Robot2017V3.Robot;
 import org.usfirst.frc5112.Robot2017V3.RobotMap;
 import org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands.GetPegAngle;
-import org.usfirst.frc5112.Robot2017V3.subsystems.TargetingSystem;
-
 import com.thegongoliers.output.PID;
 
 import edu.wpi.first.wpilibj.command.Command;

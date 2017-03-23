@@ -2,13 +2,8 @@ package org.usfirst.frc5112.Robot2017V3.commands.TargetingCommands;
 
 import org.usfirst.frc5112.Robot2017V3.Peg;
 import org.usfirst.frc5112.Robot2017V3.Robot;
-import org.usfirst.frc5112.Robot2017V3.subsystems.TargetingSystem;
-
 import com.kylecorry.frc.vision.CameraSpecs;
-import com.kylecorry.geometry.Point;
-
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class GetPegAngle extends Command {
 

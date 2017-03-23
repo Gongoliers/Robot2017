@@ -38,7 +38,7 @@ public class RobotMap {
 	private final static int YELLOW_PORT = 4;
 	private final static int PURPLE_PORT = 5;
 	private final static int GREEN_PORT = 6;
-	private final static int BLUE_PORT = 7;
+//	private final static int BLUE_PORT = 7;
 	private final static int GREY_PORT = 0;
 
 	public static double inchesToMeters(double inches) {

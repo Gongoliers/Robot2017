@@ -5,12 +5,8 @@ import java.util.List;
 import org.opencv.core.Mat;
 import org.usfirst.frc5112.Robot2017V3.Peg;
 import org.usfirst.frc5112.Robot2017V3.PegRetroreflective;
-import org.usfirst.frc5112.Robot2017V3.RobotMap;
-
 import com.kylecorry.frc.vision.TargetGroup;
 import com.kylecorry.frc.vision.TargetGroupDetector;
-import com.kylecorry.geometry.Point;
-
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
