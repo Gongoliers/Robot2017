@@ -50,34 +50,6 @@ public class Drivetrain extends Subsystem {
 	}
 
 	/**
-	 * Moves the robot forward at a specific speed until the Drivetrain.stop()
-	 * method is called or until the time has expired.
-	 * 
-	 * @param speed
-	 *            The specific speed to move the robot at.
-	 * @param time
-	 *            The time to move the robot for in seconds.
-	 */
-	public void forward(double speed, double time) {
-		drivetrain.drive(-speed, 0);
-		Timer.delay(time);
-	}
-
-	/**
-	 * Moves the robot backwards at a specific speed until the Drivetrain.stop()
-	 * method is called or until the time has expired.
-	 * 
-	 * @param speed
-	 *            The specific speed to move the robot at.
-	 * @param time
-	 *            The time to move the robot for in seconds.
-	 */
-	public void reverse(double speed, double time) {
-		drivetrain.drive(speed, 0);
-		Timer.delay(time);
-	}
-	
-	/**
 	 * Rotates the robot in the clockwise direction (to the right).
 	 * @param speed Specifies the speed to rotate the robot at.
 	 */
