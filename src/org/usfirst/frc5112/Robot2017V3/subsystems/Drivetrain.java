@@ -5,7 +5,6 @@ import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.OperatorContr
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
