@@ -20,13 +20,8 @@ public class Drivetrain extends Subsystem {
 	private double turningThrottle = 0.7;
 	private final double INITIAL_THROTTLE = 0.7;
 	private final double FINAL_THROTTLE = 1.0;
+	public double switchYSign = -1;
 	
-	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
-
-	/**
-	 * 
-	 */
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new OperatorControl());
@@ -40,7 +35,7 @@ public class Drivetrain extends Subsystem {
 	 *            The specific speed to move the robot at.
 	 */
 	public void forward(double speed) {
-		drivetrain.arcadeDrive(-speed, -0.03*RobotMap.gyro.getAngle(), false);
+		drivetrain.arcadeDrive(-speed * switchYSign, -0.03*RobotMap.gyro.getAngle(), false);
 	}
 
 	/**
@@ -51,7 +46,7 @@ public class Drivetrain extends Subsystem {
 	 *            The specific speed to move the robot at.
 	 */
 	public void reverse(double speed) {
-		drivetrain.arcadeDrive(speed, -0.03*RobotMap.gyro.getAngle(), false);
+		drivetrain.arcadeDrive(speed * switchYSign, -0.03*RobotMap.gyro.getAngle(), false);
 	}
 
 	/**
@@ -114,9 +109,9 @@ public class Drivetrain extends Subsystem {
 		if (!invertedRotating) {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle) * -1, joystick.getZ() * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle) * switchYSign, joystick.getZ() * turningThrottle);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle) * -1, joystick.getZ() * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle) * switchYSign, joystick.getZ() * turningThrottle);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ() * turningThrottle);
@@ -124,9 +119,9 @@ public class Drivetrain extends Subsystem {
 		} else {
 			if (joystick.getY() < -0.1 || joystick.getY() > 0.1) {
 				if (joystick.getY() <= -0.1){
-					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle) * -1, joystick.getZ()* -1 * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() + 0.1) * 10 / 9 * throttle) * switchYSign, joystick.getZ()* -1 * turningThrottle);
 				}else {
-					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle) * -1, joystick.getZ()* -1 * turningThrottle);
+					drivetrain.arcadeDrive(((joystick.getY() - 0.1) * 10 / 9 * throttle) * switchYSign, joystick.getZ()* -1 * turningThrottle);
 				}
 			} else {
 				drivetrain.arcadeDrive(0, joystick.getZ() * turningThrottle * -1);
@@ -152,6 +147,14 @@ public class Drivetrain extends Subsystem {
         RobotMap.drivetrainRight2.setInverted(true);
         RobotMap.drivetrainRight1.setInverted(true);
         invertedRotating = false;
+	}
+
+	public void swtichYValue() {
+		if (switchYSign == 1) {
+			switchYSign = -1;
+		} else {
+			switchYSign = 1;
+		}
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RestoreMotorD
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RotateClockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.RotateCounterclockwise;
 import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.StopDrivetrain;
+import org.usfirst.frc5112.Robot2017V3.commands.DrivetrainCommands.SwitchYSign;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.DecreaseScalerSpeedManual;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.IncreaseScalerSpeedManual;
 import org.usfirst.frc5112.Robot2017V3.commands.ScalerCommands.ScalerUp;
@@ -71,7 +72,8 @@ public class OI {
 		SmartDashboard.putData("StopDrivetrain", new StopDrivetrain());
 		SmartDashboard.putData("RotateClockwise", new RotateClockwise());
 		SmartDashboard.putData("RotateCounterclockwise", new RotateCounterclockwise());
-
+		SmartDashboard.putData("Switch Y Sign", new SwitchYSign());
+		
 		//SmartDashboard - Targeting System
 //		SmartDashboard.putData("TargetingModeOff", new TargetingModeOff());
 //		SmartDashboard.putData("TargetingModeOn", new TargetingModeOn());
